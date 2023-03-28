@@ -12,7 +12,7 @@ nav {
   position: fixed;
 }
 
-.nav-write-tweet {
+.compose-tweet {
   display: flex;
   align-items: center;
   flex-direction: column;
