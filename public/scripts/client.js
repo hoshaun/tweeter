@@ -31,16 +31,16 @@ $(document).ready(function() {
   });
 
   const createTweetElement = function(tweet) {
-    const $tweet = $(`
+    let $tweet = $(`
       <article class="tweet">
         <div class="tweet-header">
           <h3 class="profile">
             <div><img src=${tweet.user.avatars} /></div>
-            <div class="profile-name">${tweet.user.name}</div>
+            <div class="profile-name">${escape(tweet.user.name)}</div>
           </h3>
-          <h3 class="profile-id">${tweet.user.handle}</h3>
+          <h3 class="profile-id">${escape(tweet.user.handle)}</h3>
         </div>
-        <p id="tweet-post">${tweet.content.text}</p>
+        <p id="tweet-post">${escape(tweet.content.text)}</p>
         <footer class="tweet-history-footer">
           <div>${timeago.format(Date.now() - tweet.created_at)}</div>
           <div class="tweet-footer-icons">
@@ -68,6 +68,12 @@ $(document).ready(function() {
     .then(function (data) {
       renderTweets(data);
     });
+  };
+
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
   };
 
   loadTweets();
