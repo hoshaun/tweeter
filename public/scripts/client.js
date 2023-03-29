@@ -7,6 +7,7 @@
 $(document).ready(function() {
   const $submitButton = $('.tweet-button');
   const charLimit = 140;
+  const $validationError = $('#validation-error');
 
   $submitButton.on('click', function(e) {
     e.preventDefault();
@@ -15,14 +16,18 @@ $(document).ready(function() {
     const tweetSpaceCount = tweet.split(' ').length - 1;
 
     if (!data || tweet.length <= 0 || tweet.length === tweetSpaceCount) {
-      alert('Tweet cannot be empty.');
+      const msg = 'Tweet cannot be empty.';
+      showValidationError($validationError, msg);
       return;
     }
 
     if (tweet.length > charLimit) {
-      alert(`Tweet cannot exceed ${charLimit} characters.`);
+      const msg = `Tweet cannot exceed ${charLimit} characters.`;
+      showValidationError($validationError, msg);
       return;
     }
+
+    hideValidationError($validationError);
 
     $.ajax('/tweets', { method: 'POST', data: data })
     .then(function () {
@@ -69,6 +74,20 @@ $(document).ready(function() {
       renderTweets(data);
     });
   };
+
+  const showValidationError = function(err, msg) {
+    hideValidationError(err);
+    err.slideDown("fast", function() {
+      err.append(msg);
+      err.css('display', 'flex');
+    });
+  }
+
+  const hideValidationError = function(err) {
+    err.slideUp("fast", function() {
+      err.text('');
+    });
+  }
 
   const escape = function (str) {
     let div = document.createElement("div");
