@@ -5,11 +5,23 @@
  */
 
 $(document).ready(function() {
+  const $scrollTopButton = $('#scroll-top-button');
   const $submitButton = $('.tweet-button');
   const charLimit = 140;
   const $validationError = $('#validation-error');
   const $composeTextArea = $('#tweet-text');
+  
   $composeTextArea.focus();
+  window.onscroll = function() {
+    showScrollTopButton();
+  };
+  
+  $scrollTopButton.on('click', function() {
+    $composeTextArea.focus();
+    $('html, body').animate({
+      scrollTop: 0
+    }, 'slow');
+  });
 
   $submitButton.on('click', function(e) {
     e.preventDefault();
@@ -30,11 +42,12 @@ $(document).ready(function() {
     }
 
     hideValidationError($validationError);
+    $composeTextArea.val('');
 
     $.ajax('/tweets', { method: 'POST', data: data })
-    .then(function () {
-      loadTweets();
-    });
+      .then(function() {
+        loadTweets();
+      });
   });
 
   const createTweetElement = function(tweet) {
@@ -72,9 +85,9 @@ $(document).ready(function() {
 
   const loadTweets = function() {
     $.ajax('/tweets', { method: 'GET' })
-    .then(function (data) {
-      renderTweets(data);
-    });
+      .then(function(data) {
+        renderTweets(data);
+      });
   };
 
   const showValidationError = function(err, msg) {
@@ -83,15 +96,23 @@ $(document).ready(function() {
       err.append(msg);
       err.css('display', 'flex');
     });
-  }
+  };
 
   const hideValidationError = function(err) {
     err.slideUp("fast", function() {
       err.text('');
     });
-  }
+  };
 
-  const escape = function (str) {
+  const showScrollTopButton = function() {
+    if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+      $scrollTopButton.show();
+    } else {
+      $scrollTopButton.hide();
+    }
+  };
+
+  const escape = function(str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
