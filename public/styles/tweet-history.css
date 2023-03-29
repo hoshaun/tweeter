@@ -1,5 +1,6 @@
 .tweet-history {
   display: flex;
+  flex-direction: column;
   margin-left: 5%;
   margin-right: 5%;
 }
@@ -29,14 +30,14 @@
   color: rgb(192, 188, 248);
 }
 
-.tweet-post {
+.tweet {
   display: flex;
   flex-direction: column;
   border: 4px solid black;
   width: 100%;
 }
 
-#tweet-post-text {
+#tweet-post {
   display: flex;
   margin-left: 3%;
   margin-right: 3%;
