@@ -24,7 +24,10 @@ $(document).ready(function() {
       return;
     }
 
-    $.ajax('/tweets', { method: 'POST', data: data });
+    $.ajax('/tweets', { method: 'POST', data: data })
+    .then(function () {
+      loadTweets();
+    });
   });
 
   const createTweetElement = function(tweet) {
@@ -56,7 +59,7 @@ $(document).ready(function() {
   const renderTweets = function(tweets) {
     for (const tweet of tweets) {
       const $tweet = createTweetElement(tweet);
-      $('.tweet-history').append($tweet);
+      $('.tweet-history').prepend($tweet);
     }
   };
 
