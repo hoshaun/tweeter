@@ -28,7 +28,18 @@ $(document).ready(function() {
       },
       "created_at": 1461113959088
     }
-  ]
+  ];
+  
+  const $submitButton = $('.tweet-button');
+  $submitButton.on('click', function(e) {
+    e.preventDefault();
+    const data = $('form').serialize();
+    console.log(data);
+    $.ajax('/tweets', { data: data, method: 'POST' })
+    .then(function (data) {
+      console.log(data);
+    });
+  });
 
   const createTweetElement = function(tweet) {
     const $tweet = $(`
@@ -61,7 +72,7 @@ $(document).ready(function() {
       const $tweet = createTweetElement(tweet);
       $('.tweet-history').append($tweet);
     }
-  }
+  };
 
   renderTweets(data);
 
