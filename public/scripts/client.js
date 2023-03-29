@@ -6,10 +6,24 @@
 
 $(document).ready(function() {
   const $submitButton = $('.tweet-button');
+  const charLimit = 140;
 
   $submitButton.on('click', function(e) {
     e.preventDefault();
     const data = $('form').serialize();
+    const tweet = data.slice(5).replaceAll('%20', ' ');
+    const tweetSpaceCount = tweet.split(' ').length - 1;
+
+    if (!data || tweet.length <= 0 || tweet.length === tweetSpaceCount) {
+      alert('Tweet cannot be empty.');
+      return;
+    }
+
+    if (tweet.length > charLimit) {
+      alert(`Tweet cannot exceed ${charLimit} characters.`);
+      return;
+    }
+
     $.ajax('/tweets', { method: 'POST', data: data });
   });
 
