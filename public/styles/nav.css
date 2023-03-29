@@ -19,3 +19,23 @@ nav {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 20px;
 }
+
+.compose-button {
+  cursor: pointer;
+}
+
+.compose-button:hover + .fa-angles-down {
+  animation: ease-up-down 2s infinite;
+}
+
+@keyframes ease-up-down {
+  0% {
+    transform: translate(0px, 10px);
+  }
+  50% {
+    transform: translate(0px, 0px);
+  }
+  100% {
+    transform: translate(0px, 10px);
+  }
+}

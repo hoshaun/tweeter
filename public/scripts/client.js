@@ -8,6 +8,8 @@ $(document).ready(function() {
   const $submitButton = $('.tweet-button');
   const charLimit = 140;
   const $validationError = $('#validation-error');
+  const $composeTextArea = $('#tweet-text');
+  $composeTextArea.focus();
 
   $submitButton.on('click', function(e) {
     e.preventDefault();
