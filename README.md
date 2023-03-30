@@ -9,8 +9,12 @@ This repository is the starter code for the project: Students will fork and clon
 ### Tweeter on Desktop
 !["tweeter_desktop"](./docs/tweeter_desktop.png)
 
+##
+
 ### Tweeter on Tablet
 !["tweeter_tablet"](./docs/tweeter_tablet.png)
+
+##
 
 ### Tweeter on Mobile
 !["tweeter_mobile"](./docs/tweeter_mobile.png)
