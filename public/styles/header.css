@@ -1,9 +1,50 @@
-header {
-  height: 400px;
-  width: 100%;
-  display: flex;
-  justify-content: bottom;
-  align-items: center;
-  flex-direction: column;
-  padding-top: 140px;
+@media only screen and (max-width: 768px) {
+  header {
+    height: 400px;
+    width: 100%;
+    display: flex;
+    justify-content: bottom;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 1em;
+    background-color: #d66f00;
+    background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+    color: white;
+    font-size: 50px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  header {
+    height: 520px;
+    width: 100%;
+    display: flex;
+    justify-content: bottom;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 140px;
+    background-color: #d66f00;
+    background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+    color: white;
+    font-size: 50px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  header {
+    background-color: #d66f00;
+    background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+    margin-top: 15%;
+    margin-left: 15%;
+    width: 25%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0.5em;
+    color: white;
+    font-size: 50px;
+    position: fixed;
+  }
 }

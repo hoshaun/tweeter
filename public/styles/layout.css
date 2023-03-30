@@ -19,7 +19,6 @@ body {
   background-color: #f4f1ec;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 24px;
-  background-image: url('../images/bedge-grunge.png');
 }
 
 /*
@@ -36,8 +35,8 @@ body {
 #scroll-top-button {
   display: none;
   position: fixed;
-  bottom: 50px;
-  right: 50px;
+  bottom: 0.5em;
+  right: 0.5em;
   background-color: red;
   cursor: pointer;
   border-radius: 50%;

@@ -1,41 +1,86 @@
-nav {
-  font-family: 'Bungee', sans-serif;
-  color: #FFFFFF;
-  background-color: #4056A1;
-  display: flex;
-  justify-content: space-between;
-  font-size: 40px;
-  height: 120px;
-  width: 100%;
-  padding: 1.5em;
-  margin: 0;
-  position: fixed;
-}
-
-.compose-tweet {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 20px;
-}
-
-.compose-button {
-  cursor: pointer;
-}
-
-.compose-button:hover + .fa-angles-down {
-  animation: ease-up-down 2s infinite;
-}
-
-@keyframes ease-up-down {
-  0% {
-    transform: translate(0px, 10px);
+@media only screen and (max-width: 768px) {
+  nav {
+    font-family: 'Bungee', sans-serif;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    font-size: 40px;
+    height: 120px;
+    width: 100%;
+    padding: 0.5em;
+    margin: 0;
+    position: absolute;
   }
-  50% {
-    transform: translate(0px, 0px);
+
+  .compose-tweet {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 20px;
   }
-  100% {
-    transform: translate(0px, 10px);
+
+  .compose-button {
+    cursor: pointer;
+  }
+
+  .compose-button:hover + .fa-angles-down {
+    animation: ease-up-down 2s infinite;
+  }
+
+  @keyframes ease-up-down {
+    0% {
+      transform: translate(0px, 10px);
+    }
+    50% {
+      transform: translate(0px, 0px);
+    }
+    100% {
+      transform: translate(0px, 10px);
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  nav {
+    font-family: 'Bungee', sans-serif;
+    color: #FFFFFF;
+    background-color: #4056A1;
+    display: flex;
+    justify-content: space-between;
+    font-size: 40px;
+    height: 120px;
+    width: 100%;
+    padding: 1.5em;
+    margin: 0;
+    position: fixed;
+  }
+
+  .compose-tweet {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 20px;
+  }
+
+  .compose-button {
+    cursor: pointer;
+  }
+
+  .compose-button:hover + .fa-angles-down {
+    animation: ease-up-down 2s infinite;
+  }
+
+  @keyframes ease-up-down {
+    0% {
+      transform: translate(0px, 10px);
+    }
+    50% {
+      transform: translate(0px, 0px);
+    }
+    100% {
+      transform: translate(0px, 10px);
+    }
   }
 }

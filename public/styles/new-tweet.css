@@ -1,45 +1,96 @@
-.new-tweet {
-  display: flex;
-  flex-direction: column;
-  margin-left: 5%;
-  margin-right: 5%;
+@media only screen and (max-width: 1024px) {
+  .new-tweet {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .new-tweet label {
+    font-weight: bold;
+  }
+
+  #tweet-text {
+    border-bottom: 4px solid black;
+    background-color: transparent;
+    width: 100%;
+    resize: none;
+  }
+
+  .tweet-submit {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .tweet-button {
+    font-family: 'Bungee', sans-serif;
+    color: #FFFFFF;
+    background-color: #4056A1;
+    font-size: 20px;
+  }
+
+  .counter {
+    font-family: 'Bungee', sans-serif;
+    color: black;
+    font-size: 20px;
+  }
+
+  #validation-error {
+    display: none;
+    justify-content: center;
+    color: red;
+    font-weight: bold;
+    border: 4px solid red;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+  }
 }
 
-.new-tweet label {
-  font-weight: bold;
-}
+@media only screen and (min-width: 1024px) {
+  .new-tweet {
+    display: flex;
+    flex-direction: column;
+    padding-top: 140px;
+    float: right;
+    width: 50%;
+  }
 
-#tweet-text {
-  border-bottom: 4px solid black;
-  background-color: transparent;
-  width: 100%;
-  resize: none;
-}
+  .new-tweet label {
+    font-weight: bold;
+  }
 
-.tweet-submit {
-  display: flex;
-  justify-content: space-between;
-}
+  #tweet-text {
+    border-bottom: 4px solid black;
+    background-color: transparent;
+    width: 100%;
+    resize: none;
+  }
 
-.tweet-button {
-  font-family: 'Bungee', sans-serif;
-  color: #FFFFFF;
-  background-color: #4056A1;
-  font-size: 20px;
-}
+  .tweet-submit {
+    display: flex;
+    justify-content: space-between;
+  }
 
-.counter {
-  font-family: 'Bungee', sans-serif;
-  color: black;
-  font-size: 20px;
-}
+  .tweet-button {
+    font-family: 'Bungee', sans-serif;
+    color: #FFFFFF;
+    background-color: #4056A1;
+    font-size: 20px;
+  }
 
-#validation-error {
-  display: none;
-  justify-content: center;
-  color: red;
-  font-weight: bold;
-  border: 4px solid red;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  .counter {
+    font-family: 'Bungee', sans-serif;
+    color: black;
+    font-size: 20px;
+  }
+
+  #validation-error {
+    display: none;
+    justify-content: center;
+    color: red;
+    font-weight: bold;
+    border: 4px solid red;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+  }
 }
