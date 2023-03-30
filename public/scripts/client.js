@@ -5,24 +5,15 @@
  */
 
 $(document).ready(function() {
-  const $scrollTopButton = $('#scroll-top-button');
   const $submitButton = $('.tweet-button');
   const charLimit = 140;
   const $validationError = $('#validation-error');
   const $composeTextArea = $('#tweet-text');
   
+  // focus text area input on page load
   $composeTextArea.focus();
-  window.onscroll = function() {
-    showScrollTopButton();
-  };
-  
-  $scrollTopButton.on('click', function() {
-    $composeTextArea.focus();
-    $('html, body').animate({
-      scrollTop: 0
-    }, 'slow');
-  });
 
+  // event handler for tweet submit button
   $submitButton.on('click', function(e) {
     e.preventDefault();
     const data = $('form').serialize();
@@ -50,6 +41,7 @@ $(document).ready(function() {
       });
   });
 
+  // create new tweet HTML element
   const createTweetElement = function(tweet) {
     let $tweet = $(`
       <article class="tweet">
@@ -76,6 +68,7 @@ $(document).ready(function() {
     return $tweet;
   };
 
+  // add all submitted tweets to HTML
   const renderTweets = function(tweets) {
     for (const tweet of tweets) {
       const $tweet = createTweetElement(tweet);
@@ -83,6 +76,7 @@ $(document).ready(function() {
     }
   };
 
+  // load all submitted tweets
   const loadTweets = function() {
     $.ajax('/tweets', { method: 'GET' })
       .then(function(data) {
@@ -90,6 +84,7 @@ $(document).ready(function() {
       });
   };
 
+  // show tweet submission validation error
   const showValidationError = function(err, msg) {
     hideValidationError(err);
     err.slideDown("fast", function() {
@@ -98,20 +93,14 @@ $(document).ready(function() {
     });
   };
 
+  // hide tweet submission validation error
   const hideValidationError = function(err) {
     err.slideUp("fast", function() {
       err.text('');
     });
   };
 
-  const showScrollTopButton = function() {
-    if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
-      $scrollTopButton.show();
-    } else {
-      $scrollTopButton.hide();
-    }
-  };
-
+  // DOM escape function for preventing XSS
   const escape = function(str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
