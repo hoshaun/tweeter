@@ -20,11 +20,14 @@
     font-size: 20px;
   }
 
-  .compose-button {
+  #compose-button {
+    color: white;
     cursor: pointer;
+    background-color: transparent;
+    border: none;
   }
 
-  .compose-button:hover + .fa-angles-down {
+  #compose-button:hover + .fa-angles-down {
     animation: ease-up-down 2s infinite;
   }
 
@@ -64,11 +67,14 @@
     font-size: 20px;
   }
 
-  .compose-button {
+  #compose-button {
+    color: white;
     cursor: pointer;
+    background-color: transparent;
+    border: none;
   }
 
-  .compose-button:hover + .fa-angles-down {
+  #compose-button:hover + .fa-angles-down {
     animation: ease-up-down 2s infinite;
   }
 
