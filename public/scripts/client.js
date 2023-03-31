@@ -40,6 +40,9 @@ $(document).ready(function() {
     $.ajax('/tweets', { method: 'POST', data: data })
       .then(function() {
         loadTweets();
+      })
+      .catch(function() {
+        alert('Failed to submit tweet.')
       });
   });
 
