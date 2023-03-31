@@ -75,9 +75,11 @@ $(document).ready(function() {
 
   // add all submitted tweets to HTML
   const renderTweets = function(tweets) {
+    $tweetHistory = $('.tweet-history');
+    $tweetHistory.empty();
     for (const tweet of tweets) {
       const $tweet = createTweetElement(tweet);
-      $('.tweet-history').prepend($tweet);
+      $tweetHistory.prepend($tweet);
     }
   };
 
