@@ -5,10 +5,11 @@
  */
 
 $(document).ready(function() {
-  const $submitButton = $('.tweet-button');
-  const charLimit = 140;
-  const $validationError = $('#validation-error');
   const $composeTextArea = $('#tweet-text');
+  const $tweetCharCounter = $('#tweet-char-counter');
+  const $submitButton = $('.tweet-button');
+  const $validationError = $('#validation-error');
+  const charLimit = 140;
   
   // focus text area input on page load
   $composeTextArea.focus();
@@ -34,6 +35,7 @@ $(document).ready(function() {
 
     hideValidationError($validationError);
     $composeTextArea.val('');
+    $tweetCharCounter.val(charLimit);
 
     $.ajax('/tweets', { method: 'POST', data: data })
       .then(function() {
